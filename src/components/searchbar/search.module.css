@@ -1,0 +1,18 @@
+.searchContainer {
+  margin: 20px auto;
+  width: 400px;
+  position: relative;
+  padding-top: 17px;
+  float: right;
+}
+
+.input {
+  width: 300px;
+  height: 30px;
+  position: relative;
+  box-shadow: 0px 0px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 1cap;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}

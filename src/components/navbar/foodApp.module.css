@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+  gap: 8px;
+}
+
+.innerContainer {
+  flex: 1;
+  width: 10px;
+}
+
+.nav {
+  font-size: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #393e46;
+  padding: 30px;
+}
+
+.logo {
+  width: 51px;
+  position: absolute;
+  margin-top: 21px;
+}
