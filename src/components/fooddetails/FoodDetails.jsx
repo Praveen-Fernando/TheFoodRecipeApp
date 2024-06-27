@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./foodDetails.module.css";
+import ItemList from "./ItemList";
 
 export default function FoodDetails({ foodId }) {
   const URL = import.meta.env.VITE_APP_RECIPE_URL;
@@ -46,7 +47,9 @@ export default function FoodDetails({ foodId }) {
             <strong>{food.pricePerServing / 100} Per Serving</strong>
           </span>
         </div>
+        <h2>Ingredients </h2>
         <h1>Instructions</h1>
+        <ItemList food={food} isLoading={isLoading} />
         <div className={styles.recipeInstructions}>
           <ol>
             {isLoading ? (
