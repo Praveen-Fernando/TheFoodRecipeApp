@@ -3,19 +3,17 @@ import styles from "./foodDetails.module.css";
 import ItemList from "./ItemList";
 
 export default function FoodDetails({ foodId }) {
-  const URL = import.meta.env.VITE_APP_RECIPE_URL;
+  const URL = `https://api.spoonacular.com/recipes/${foodId}/information`;
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [food, setFood] = useState("");
-  const [isLoading, setIsLoding] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchFood() {
-      const recipe = await fetch(
-        `${URL}/${foodId}/information?apiKey=${API_KEY}`
-      );
-      const data = await recipe.json();
+      const res = await fetch(`${URL}?apiKey=${API_KEY}`);
+      const data = await res.json();
       setFood(data);
-      setIsLoding(false);
+      setIsLoading(false);
     }
     fetchFood();
   }, [foodId]);
@@ -27,7 +25,7 @@ export default function FoodDetails({ foodId }) {
         <img className={styles.recipeImage} src={food.image} alt=""></img>
         <div className={styles.recipeDetails}>
           <span>
-            <strong>⏲️{food.readyInMinutes}Minutes</strong>
+            <strong>⏲️{food.readyInMinutes} Minutes</strong>
           </span>
           <span>
             <strong>👪 Serves {food.servings}</strong>
@@ -44,19 +42,20 @@ export default function FoodDetails({ foodId }) {
         <div>
           ${" "}
           <span>
-            <strong>{food.pricePerServing / 100} Per Serving</strong>
+            <strong>{food.pricePerServing} Per Serving</strong>
           </span>
         </div>
         <h2>Ingredients </h2>
-        <h1>Instructions</h1>
         <ItemList food={food} isLoading={isLoading} />
+
+        <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
           <ol>
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              food.analyzedInstructions[0].steps.map((step, foodId) => (
-                <li key={foodId}>{step.step}</li>
+              food.analyzedInstructions[0].steps.map((step, ) => (
+                <li>{step.step}</li>
               ))
             )}
           </ol>

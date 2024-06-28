@@ -12,7 +12,7 @@ import FoodDetails from "./components/fooddetails/FoodDetails";
 
 function App() {
   const [foodData, setFoodData] = useState([]);
-  const [foodId, setFoodID] = useState("");
+  const [foodId, setFoodId] = useState("");
 
   return (
     <div className="App">
@@ -25,15 +25,15 @@ function App() {
         </InnerNavContainer>
       </Nav>
 
-      {/* <Container>
+      <Container>
         <InnerContiner>
-          {<FoodList setFoodId={setFoodID} foodData={foodData} />}
+          {<FoodList setFoodId={setFoodId} foodData={foodData} />}
           <Testfoodlist />
         </InnerContiner>
         <InnerContiner>
           <FoodDetails foodId={foodId} />
         </InnerContiner>
-      </Container> */}
+      </Container>
     </div>
   );
 }
