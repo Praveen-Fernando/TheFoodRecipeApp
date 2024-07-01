@@ -46,7 +46,7 @@ export default function FoodDetails({ foodId }) {
           </span>
         </div>
         <h2>Ingredients </h2>
-        <ItemList food={food} isLoading={isLoading} />
+        <ItemList food={food} isLoading={isLoading} foodId={foodId} />
 
         <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
@@ -54,7 +54,7 @@ export default function FoodDetails({ foodId }) {
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              food.analyzedInstructions[0].steps.map((step, ) => (
+              food.analyzedInstructions[0].steps.map((step) => (
                 <li>{step.step}</li>
               ))
             )}

@@ -7,7 +7,6 @@ import Container from "./components/container/Container";
 import InnerContiner from "./components/container/InnerContainer";
 import InnerNavContainer from "./components/navbar/InnerNavContainer";
 import FoodApp from "./components/navbar/FoodApp";
-import Testfoodlist from "./components/Testfoodlist";
 import FoodDetails from "./components/fooddetails/FoodDetails";
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
       <Container>
         <InnerContiner>
           {<FoodList setFoodId={setFoodId} foodData={foodData} />}
-          <Testfoodlist />
         </InnerContiner>
         <InnerContiner>
           <FoodDetails foodId={foodId} />
